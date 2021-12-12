@@ -1,0 +1,764 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+
+
+    <style>
+        .me .sidebar {
+            margin: 0;
+            padding: 0;
+            background-color: #3D3D3D;
+            width: 100%;
+            height: 100%;
+        }
+
+            .me .sidebar > ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+                .me .sidebar > ul li {
+                    display: block;
+                    border: 0;
+                    border-bottom: 1px #5c5c5c solid;
+                    position: relative;
+                }
+
+                    .me .sidebar > ul li.title {
+                        padding: 20px 20px 10px 20px;
+                        font-family: 'Malgun Gothic', 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+                        font-weight: 300;
+                        font-size: 2rem;
+                        letter-spacing: 0.01em;
+                        line-height: 2.2rem;
+                        color: #ffffff;
+                    }
+
+                    .me .sidebar > ul li a {
+                        display: block;
+                        position: relative;
+                        padding: 10px 20px;
+                        text-decoration: none;
+                        color: #eeeeee;
+                        background-color: #3D3D3D;
+                    }
+
+                        .me .sidebar > ul li a:hover {
+                            background-color: #262626;
+                            color: #ffffff;
+                        }
+
+                    .me .sidebar > ul li.stick {
+                        position: relative; 
+                    }
+                    .me .sidebar > ul li.stick:before {
+                            content: "";
+                            position: absolute;
+                            width: 7px;
+                            height: 40px;
+                            left: -7px;
+                            text-indent: -9999px;
+                            border-top-left-radius: 5px;
+                            border-bottom-left-radius: 5px;
+                            background-color: inherit;
+                    }
+                    .me .sidebar > ul li.disabled a {
+                        background-color: #8a8a8a; cursor: default; color: #555555;
+                    }
+                    .me .sidebar > ul li.active a {
+                        background-color: #9a1616; color: #ffffff; 
+                    }
+
+
+
+
+                .me .sidebar > ul ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    display: none; 
+                    z-index: 1000;
+                    width: auto;
+                    border: 1px solid #dcddde;
+                    box-shadow: none;
+                    position: relative !important;
+                    background-color: #e5e5e5;
+                }
+
+                    .me .sidebar > ul ul a {
+                        padding: 8px 32px !important;
+                        color: inherit;
+                        font-size: 12px !important;
+                        line-height: 14px !important;
+                        cursor: pointer;                                        
+                    }
+
+
+                    .me .sidebar > ul ul .divider {
+                        padding: 0;
+                        height: 1px;
+                        margin: 9px 1px;
+                        overflow: hidden;
+                        background-color: #e5e5e5;
+                        border-width: 0;                        
+                    }
+
+                        .me .sidebar > ul ul .divider:hover {
+                            background: #e5e5e5;
+                        }
+
+
+                    .me .sidebar > ul ul li {
+                        display: block;
+                        padding: 0;
+                        vertical-align: baseline;
+                        position: relative;
+                        font-family: 'Malgun Gothic', 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+                        margin: 5px 0 0;
+                        width: 100%;
+                        border: 0;
+                    }
+
+                        .me .sidebar > ul ul li a {
+                            display: block;
+                            text-decoration: none;
+                            font-family: 'Malgun Gothic', 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+                            font-weight: 200;
+                            letter-spacing: 0.01em;
+                            line-height: 2rem;
+                            font-size: 2rem;
+                            color: inherit;
+                            background-color: #e5e5e5;
+                        }
+
+                        .me .sidebar > ul ul li:hover {
+                            background: #edf4fc;
+                            border-color: #a8d2fd;
+                        }
+
+                        .me .sidebar > ul ul li:last-child {
+                            margin-bottom: 5px;
+                        }
+
+
+                        .me .sidebar > ul ul li.divider, .me .sidebar > ul ul li.divider:hover {
+                            background-color: #c2c2c2;
+                        }
+
+                        .me .sidebar > ul ul li.disabled, .me .sidebar > ul ul li.disabled:hover {
+                            cursor: default !important;
+                            background: transparent !important;
+                            color: #eeeeee;
+                        }
+
+                            .me .sidebar > ul ul li.disabled a, .me .sidebar > ul ul li.disabled a:hover {
+                                color: inherit;
+                                cursor: inherit;
+                                background: inherit;
+                                color: #999999;
+                            }
+
+
+
+            /* 현재 코드는 Dark 버전에서 Light 버전으로 변경시 사용하는 코드 부분: 시작*/
+            .me .sidebar.light {
+                background-color: #ffffff;
+                border: 1px #eaeaea solid;
+            }
+
+                .me .sidebar.light li {
+                    border-bottom-color: #eeeeee;
+                }
+
+                    .me .sidebar.light li.title {
+                        color: #1d1d1d;
+                    }
+
+                    .me .sidebar.light li a {
+                        color: #1d1d1d;
+                        background-color: #ffffff;
+                    }
+
+                        .me .sidebar.light li a:hover {
+                            background-color: #00aff0;
+                        }
+
+                    .me .sidebar.light li ul {
+                        background-color: #ffffff;
+                        border: 1px transparent solid;
+                    }
+
+                    .me .sidebar.light li .divider {
+                        background-color: #eeeeee;
+                    }
+
+                        .me .sidebar.light li .divider:hover {
+                            background-color: #eeeeee;
+                        }
+
+                    .me .sidebar.light li.disabled a {
+                        background-color: #ffffff;
+                        cursor: default;
+                        color: #999999;
+                    }
+
+                    .me .sidebar.light li.active a {
+                        background-color: #1ba1e2;
+                        color: #ffffff;
+                    }
+        /* 현재 코드는 Dark 버전에서 Light 버전으로 변경시 사용하는 코드 부분: 종료*/
+
+
+
+    </style>
+
+    <!-- Load JavaScript Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script>
+        $(function () {
+            $('html').on('click', function (e) {
+                $('.me-dropdown-menu').each(function (i, el) {
+                    if (!$(el).hasClass('me-keep-open') && $(el).css('display') != 'block') {
+                        $(el).hide();
+                    }
+                });
+            });
+
+            $('.me-dropdown-toggle').on('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if ($(this).next().css('display') == 'block' && !$(this).next().hasClass('me-keep-open')) {
+                    $(this).next().slideUp('fast');
+                }
+                else {
+                    $(this).next().slideDown('fast');
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+    <div style="padding-left:50px; border:1px solid red;">
+        <div class="me">
+            <h3>Dark Style</h3>
+            <div class="sidebar" style="width:180px;">
+                <ul>
+                    <li class="title">Items Group 1</li>
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    <li class="stick bg-red"><a href="#">Layouts</a></li>
+                    <li class="stick bg-yellow">
+                        <a class="me-dropdown-toggle" href="#"><i class="icon-tree-view"></i>Sub menu <span class="caret pull-right" style="margin-top: 8px;"></span></a>
+                        <ul class="me-dropdown-menu">
+                            <li><a href="#">Subitem 1</a></li>
+                            <li><a href="#">Subitem 2</a></li>
+                            <li><a href="#">Subitem 3</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Subitem 4</a></li>
+                            <li class="disabled"><a href="#">Subitem 5</a></li>
+                        </ul>
+                    </li>
+                    <li class="stick bg-green"><a href="#">Thread item</a></li>
+                    <li class="disabled"><a href="#">Disabled item</a></li>
+
+                    <li class="title">Items Group 2</li>
+                    <li><a href="#">Other Item 1</a></li>
+                    <li><a href="#">Other Item 2</a></li>
+                    <li><a href="#">Other Item 3</a></li>
+                    <li>
+                        <a class="me-dropdown-toggle" href="#">Sub menu 2 <span class="caret pull-right" style="margin-top: 8px;"></span></a>
+                        <ul class="me-dropdown-menu">
+                            <li><a href="#">Subitem 1</a></li>
+                            <li><a href="#">Subitem 2</a></li>
+                            <li><a href="#">Subitem 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <hr />
+            <h3>Light Style</h3>
+            <nav class="sidebar light" style="width:180px;">
+                <ul>
+                    <li class="title">Items Group 1</li>
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    <li class="stick bg-red"><a href="#">Layouts</a></li>
+                    <li class="stick bg-yellow">
+                        <a class="me-dropdown-toggle" href="#">Sub menu 2 <span class="caret pull-right" style="margin-top: 8px;"></span></a>
+                        <ul class="me-dropdown-menu">
+                            <li><a href="#">Subitem 1</a></li>
+                            <li><a href="#">Subitem 2</a></li>
+                            <li><a href="#">Subitem 3</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Subitem 4</a></li>
+                            <li class="disabled"><a href="#">Subitem 5</a></li>
+                        </ul>
+                    </li>
+                    <li class="stick bg-green"><a href="#">Thread item</a></li>
+                    <li class="disabled"><a href="#">Disabled item</a></li>
+
+                    <li class="title">Items Group 2</li>
+                    <li><a href="#">Other Item 1</a></li>
+                    <li><a href="#">Other Item 2</a></li>
+                    <li><a href="#">Other Item 3</a></li>
+                    <li>
+                        <a class="me-dropdown-toggle" href="#">Sub menu 2 <span class="caret pull-right" style="margin-top: 8px;"></span></a>
+                        <ul class="me-dropdown-menu">
+                            <li><a href="#">Subitem 1</a></li>
+                            <li><a href="#">Subitem 2</a></li>
+                            <li><a href="#">Subitem 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <style>
+        .me .bg-black {
+            background-color: #000000 !important;
+        }
+
+        .me .bg-white {
+            background-color: #ffffff !important;
+        }
+
+        .me .bg-lime {
+            background-color: #a4c400 !important;
+        }
+
+        .me .bg-green {
+            background-color: #60a917 !important;
+        }
+
+        .me .bg-emerald {
+            background-color: #008a00 !important;
+        }
+
+        .me .bg-teal {
+            background-color: #00aba9 !important;
+        }
+
+        .me .bg-cyan {
+            background-color: #1ba1e2 !important;
+        }
+
+        .me .bg-cobalt {
+            background-color: #0050ef !important;
+        }
+
+        .me .bg-indigo {
+            background-color: #6a00ff !important;
+        }
+
+        .me .bg-violet {
+            background-color: #aa00ff !important;
+        }
+
+        .me .bg-pink {
+            background-color: #dc4fad !important;
+        }
+
+        .me .bg-magenta {
+            background-color: #d80073 !important;
+        }
+
+        .me .bg-crimson {
+            background-color: #a20025 !important;
+        }
+
+        .me .bg-red {
+            background-color: #e51400 !important;
+        }
+
+        .me .bg-orange {
+            background-color: #fa6800 !important;
+        }
+
+        .me .bg-amber {
+            background-color: #f0a30a !important;
+        }
+
+        .me .bg-yellow {
+            background-color: #e3c800 !important;
+        }
+
+        .me .bg-brown {
+            background-color: #825a2c !important;
+        }
+
+        .me .bg-olive {
+            background-color: #6d8764 !important;
+        }
+
+        .me .bg-steel {
+            background-color: #647687 !important;
+        }
+
+        .me .bg-mauve {
+            background-color: #76608a !important;
+        }
+
+        .me .bg-taupe {
+            background-color: #87794e !important;
+        }
+
+        .me .bg-gray {
+            background-color: #555555 !important;
+        }
+
+        .me .bg-dark {
+            background-color: #333333 !important;
+        }
+
+        .me .bg-darker {
+            background-color: #222222 !important;
+        }
+
+        .me .bg-transparent {
+            background-color: transparent !important;
+        }
+
+        .me .bg-darkBrown {
+            background-color: #63362f !important;
+        }
+
+        .me .bg-darkCrimson {
+            background-color: #640024 !important;
+        }
+
+        .me .bg-darkMagenta {
+            background-color: #81003c !important;
+        }
+
+        .me .bg-darkIndigo {
+            background-color: #4b0096 !important;
+        }
+
+        .me .bg-darkCyan {
+            background-color: #1b6eae !important;
+        }
+
+        .me .bg-darkCobalt {
+            background-color: #00356a !important;
+        }
+
+        .me .bg-darkTeal {
+            background-color: #004050 !important;
+        }
+
+        .me .bg-darkEmerald {
+            background-color: #003e00 !important;
+        }
+
+        .me .bg-darkGreen {
+            background-color: #128023 !important;
+        }
+
+        .me .bg-darkOrange {
+            background-color: #bf5a15 !important;
+        }
+
+        .me .bg-darkRed {
+            background-color: #9a1616 !important;
+        }
+
+        .me .bg-darkPink {
+            background-color: #9a165a !important;
+        }
+
+        .me .bg-darkViolet {
+            background-color: #57169a !important;
+        }
+
+        .me .bg-darkBlue {
+            background-color: #16499a !important;
+        }
+
+        .me .bg-lightBlue {
+            background-color: #4390df !important;
+        }
+
+        .me .bg-lightRed {
+            background-color: #ff2d19 !important;
+        }
+
+        .me .bg-lightGreen {
+            background-color: #7ad61d !important;
+        }
+
+        .me .bg-lighterBlue {
+            background-color: #00ccff !important;
+        }
+
+        .me .bg-lightTeal {
+            background-color: #45fffd !important;
+        }
+
+        .me .bg-lightOlive {
+            background-color: #78aa1c !important;
+        }
+
+        .me .bg-lightOrange {
+            background-color: #c29008 !important;
+        }
+
+        .me .bg-lightPink {
+            background-color: #f472d0 !important;
+        }
+
+        .me .bg-grayDark {
+            background-color: #333333 !important;
+        }
+
+        .me .bg-grayDarker {
+            background-color: #222222 !important;
+        }
+
+        .me .bg-grayLight {
+            background-color: #999999 !important;
+        }
+
+        .me .bg-grayLighter {
+            background-color: #eeeeee !important;
+        }
+
+        .me .bg-blue {
+            background-color: #00aff0 !important;
+        }
+
+        .me .fg-black {
+            color: #000000 !important;
+        }
+
+        .me .fg-white {
+            color: #ffffff !important;
+        }
+
+        .me .fg-lime {
+            color: #a4c400 !important;
+        }
+
+        .me .fg-green {
+            color: #60a917 !important;
+        }
+
+        .me .fg-emerald {
+            color: #008a00 !important;
+        }
+
+        .me .fg-teal {
+            color: #00aba9 !important;
+        }
+
+        .me .fg-cyan {
+            color: #1ba1e2 !important;
+        }
+
+        .me .fg-cobalt {
+            color: #0050ef !important;
+        }
+
+        .me .fg-indigo {
+            color: #6a00ff !important;
+        }
+
+        .me .fg-violet {
+            color: #aa00ff !important;
+        }
+
+        .me .fg-pink {
+            color: #dc4fad !important;
+        }
+
+        .me .fg-magenta {
+            color: #d80073 !important;
+        }
+
+        .me .fg-crimson {
+            color: #a20025 !important;
+        }
+
+        .me .fg-red {
+            color: #e51400 !important;
+        }
+
+        .me .fg-orange {
+            color: #fa6800 !important;
+        }
+
+        .me .fg-amber {
+            color: #f0a30a !important;
+        }
+
+        .me .fg-yellow {
+            color: #e3c800 !important;
+        }
+
+        .me .fg-brown {
+            color: #825a2c !important;
+        }
+
+        .me .fg-olive {
+            color: #6d8764 !important;
+        }
+
+        .me .fg-steel {
+            color: #647687 !important;
+        }
+
+        .me .fg-mauve {
+            color: #76608a !important;
+        }
+
+        .me .fg-taupe {
+            color: #87794e !important;
+        }
+
+        .me .fg-gray {
+            color: #555555 !important;
+        }
+
+        .me .fg-dark {
+            color: #333333 !important;
+        }
+
+        .me .fg-darker {
+            color: #222222 !important;
+        }
+
+        .me .fg-transparent {
+            color: transparent !important;
+        }
+
+        .me .fg-darkBrown {
+            color: #63362f !important;
+        }
+
+        .me .fg-darkCrimson {
+            color: #640024 !important;
+        }
+
+        .me .fg-darkMagenta {
+            color: #81003c !important;
+        }
+
+        .me .fg-darkIndigo {
+            color: #4b0096 !important;
+        }
+
+        .me .fg-darkCyan {
+            color: #1b6eae !important;
+        }
+
+        .me .fg-darkCobalt {
+            color: #00356a !important;
+        }
+
+        .me .fg-darkTeal {
+            color: #004050 !important;
+        }
+
+        .me .fg-darkEmerald {
+            color: #003e00 !important;
+        }
+
+        .me .fg-darkGreen {
+            color: #128023 !important;
+        }
+
+        .me .fg-darkOrange {
+            color: #bf5a15 !important;
+        }
+
+        .me .fg-darkRed {
+            color: #9a1616 !important;
+        }
+
+        .me .fg-darkPink {
+            color: #9a165a !important;
+        }
+
+        .me .fg-darkViolet {
+            color: #57169a !important;
+        }
+
+        .me .fg-darkBlue {
+            color: #16499a !important;
+        }
+
+        .me .fg-lightBlue {
+            color: #4390df !important;
+        }
+
+        .me .fg-lighterBlue {
+            color: #00ccff !important;
+        }
+
+        .me .fg-lightTeal {
+            color: #45fffd !important;
+        }
+
+        .me .fg-lightOlive {
+            color: #78aa1c !important;
+        }
+
+        .me .fg-lightOrange {
+            color: #c29008 !important;
+        }
+
+        .me .fg-lightPink {
+            color: #f472d0 !important;
+        }
+
+        .me .fg-lightRed {
+            color: #ff2d19 !important;
+        }
+
+        .me .fg-lightGreen {
+            color: #7ad61d !important;
+        }
+
+        .me .fg-grayDark {
+            color: #333333 !important;
+        }
+
+        .me .fg-grayDarker {
+            color: #222222 !important;
+        }
+
+        .me .fg-grayLight {
+            color: #999999 !important;
+        }
+
+        .me .fg-grayLighter {
+            color: #eeeeee !important;
+        }
+
+        .me .fg-blue {
+            color: #00aff0 !important;
+        }
+    </style>
+
+
+
+
+
+
+
+</body>
+</html>

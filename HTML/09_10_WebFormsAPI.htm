@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML5 새로운 폼 태그</title>
+</head>
+<body>
+<h1>HTML5 새로운 폼 태그(Web Forms API)</h1>
+<!-- 크롬과 오페라 웹브라우저 기준 -->
+<!--[1] 자동 포커스 및 유효성 검사 적용하지 않는 영역 --> 
+<form novalidate>
+    <label>검색: </label>
+    <input type="search" name="search" id="search" value="" autofocus />
+    <input type="submit" value="검색" />
+</form>
+
+<!--[2] 유효성 검사 필요 영역 -->
+<form>
+    <!-- 텍스트박스 워터마크 기능 --> 
+    <label for="name">이름: </label>
+    <input type="text" name="name" id="name" value=""
+        placeholder="이름을 입력하시오." required />
+    <br />
+
+    <label for="email">이메일: </label>
+    <input type="email" name="email" id="email" 
+        placeholder="admin@hawaso.com" />
+    <br />
+
+    <label for="url">URL: </label>
+    <input type="url" name="url" id="url" size="30"
+        placeholder="http://www.VisualAcademy.com/" />
+    <br />
+
+    <label for="phone">전화번호: </label>
+    <input type="tel" name="phone" id="phone" 
+        placeholder="###-####-####"
+        pattern="\d+\-\d+\-\d\d\d\d" />
+    <br />
+
+    <label for="age">나이: </label>
+    <input type="number" name="age" id="age" min="1" max="150" step="1" />
+    <br />
+
+    <label>진행사항: </label>
+    <meter id="progress" min="0" max="100" value="30">프로젝트 진행사항</meter>
+    <br />
+
+    <label>범위: </label>
+    <input type="range" id="theRange" min="0" max="100" value="50" />
+    <span id="rangeValue"></span>
+    <br />
+
+    <!--[3] 앞으로는 적용될 Web Forms 태그 : 아직 미적용 -->
+
+    <!-- 콤보박스(자동 완성 기능) : 오페라에서만 지원 -->
+    <label for="">T셔츠 색상</label>
+    <input type="text" list="colors" />
+    <datalist id="colors">
+        <option value="Red"></option>
+        <option value="Green"></option>
+        <option value="Blue"></option>
+    </datalist>
+    <br />
+    
+    <label for="bgcolor">배경색</label>
+    <input type="color" name="color" value="rgb(255, 0, 0)" />
+    <br />
+
+    <!-- 날짜 및 시간 관련 -->
+    <label for="arrivalDate">도착일자</label>
+    <input type="date" id="arrivalDate" name="arrivalDate" 
+        value="2013-01-01" min="2013-01-01" max="2013-12-31" />
+    <br />
+
+    <label id="arrivalDT">도착일시</label>
+    <input type="datetime" id="arrivalDT" name="arrivalDT" value="2013-01-01 09:00:00 UTC" />
+    <br />
+
+    <label for="arrivalDTLocal">도착일시(지역)</label>
+    <input type="datetime-local" id="arrivalDTLocal" name="arrivalDTLocal" 
+        value="2013-01-01 09:30:00" />
+    <br />
+
+    <label id="arrivalTime">도착시간</label>
+    <input type="time" id="arrivalTime" name="arrivalTime" value="09:30:00" />
+    <br />
+
+    <label for="birthMonth">생일(월)</label>
+    <input type="month" id="birthMonth" name="birthMonth" value="2005-05" />
+    <br />
+
+    <label for="vacationWeek">휴가주간</label>
+    <input type="week" id="vacationWeek" name="vacationWeek" value="2013-W26" />
+    <br />    
+
+    <input type="submit" value="입력" />
+</form>
+
+    <script type="text/javascript">
+        // 범위(theRange) 슬라이더를 움직였을 때 레이블 출력
+        var theRange = document.getElementById("theRange");
+        var rangeValue = document.getElementById("rangeValue");
+        theRange.onchange = function () {
+            rangeValue.innerHTML = this.value; 
+        };
+        rangeValue.innerHTML = theRange.value;
+    </script>
+
+</body>
+</html>

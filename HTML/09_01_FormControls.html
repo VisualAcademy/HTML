@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>폼 컨트롤들</title>
+</head>
+<body>
+
+    <form>
+        <fieldset>
+            <legend>폼의 범례</legend>
+
+            <h3>텍스트 상자</h3>
+
+            <label>Single Line: <input type="text" placeholder="데이터 입력" /></label>
+            <label>Password: <input type="password" /></label>
+            <label>Multi Line: <textarea rows="3"></textarea></label>
+
+            <h3>체크박스(다중선택)와 라디오버튼(단일선택)</h3>
+
+            <label><input type="checkbox" checked="checked" /> 체크박스 1</label>
+            <label><input type="checkbox" /> 체크박스 2</label>
+
+            <label><input type="radio" name="optData" id="optData1" /> 라디오버튼1</label>
+            <label><input type="radio" name="optData" id="optData2" checked="메롱" /> 라디오버튼2</label>
+
+            <h3>드롭다운리스트(콤보박스(단일선택)), 리스트박스(다중선택)</h3>
+            <h4>드롭다운리스트</h4>
+            <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <h4>리스트박스</h4>
+            <select multiple="multiple">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+
+            <h3>도움말</h3>
+            <input type="text" name="txtHelp" value=" " /><span>인라인 도움말</span>
+
+            <h3>유효성 검사</h3>
+            <input type="email" required="required" />
+
+        </fieldset>
+    </form>
+
+</body>
+</html>

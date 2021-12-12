@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>테이블 태그와 폼 태그를 사용하여 지원서 폼 구현하기</title>
+</head>
+<body>
+    <h1>지원서</h1>
+    <table border="1" width="660">
+        <tr>
+            <td rowspan="5" width="100">
+                사진
+                <br />
+                (3x4)
+                <hr />
+                <a href="#">사진 업로드</a>
+            </td>
+            <td bgcolor="silver">
+                이름
+            </td>
+            <td>
+                <input type="text" id="txtName" name="txtName" />
+            </td>
+            <td bgcolor="silver">
+                지원분야
+            </td>
+            <td>
+                <input type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="silver">
+                생년월일
+            </td>
+            <td>
+                <input type="text" />
+            </td>
+            <td bgcolor="silver">
+                직업
+            </td>
+            <td>
+                <input type="text" />
+            </td>
+        </tr>        
+        <tr>
+            <td bgcolor="silver">
+                연락처
+            </td>
+            <td>
+                <input type="text" />
+            </td>
+            <td bgcolor="silver">
+                사이트 아이디
+            </td>
+            <td>
+                <input type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="silver">
+                이메일
+            </td>
+            <td colspan="3">
+                <input type="email" size="50" />
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="silver">
+                주소
+            </td>
+            <td colspan="3">
+                <input type="text" size="50" />
+            </td>
+        </tr>
+        <tr>
+            <td height="100" bgcolor="silver">
+                경력
+            </td>
+            <td colspan="4">
+                <textarea rows="5" cols="60"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td height="200" bgcolor="silver">
+                지원 동기
+            </td>
+            <td colspan="4">
+                <textarea rows="10" cols="60"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td height="100" bgcolor="silver">
+                기타
+            </td>
+            <td colspan="4">
+                <textarea rows="5" cols="60"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="silver">
+                &nbsp;
+            </td>
+            <td colspan="4">
+                <input type="button" id="btnSave" value="전송" />
+                <input type="reset" id="btnCancel" value="취소" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

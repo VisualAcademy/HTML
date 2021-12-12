@@ -1,0 +1,24 @@
+<pre>
+<form name="MyForm" method="post" action="./Process.aspx" enctype="multipart/form-data">
+싱글라인 텍스트박스: <input type="text" name="id" size="5" maxlength="3" />
+패스워드 텍스트박스: <input type="password" name="pwd" value="1234" readonly="true" />
+라디오버튼(단일선택): <input type="radio" name="gender" /><input type="radio" name="gender" checked="true" />
+체크박스(다중선택): <input type="checkbox" name="hobby" /><input type="checkbox" name="hobby" checked="true" />
+파일업로드: <input type="file" name="photo" />
+드롭다운리스트: 	<select name="job" size="1">
+			<option>기획자</option>
+			<option selected="true">개발자</option>
+		</select>
+리스트박스: 	<select name="favorite" size="3" multiple="true">
+			<option>HTML</option>
+			<option selected="true">CSS</option>
+			<option>JavaScript</option>
+		</select>
+멀티라인 텍스트박스: <textarea name="intro" cols="40" rows="5"></textarea>
+일반버튼: <input type="button" value="일반버튼" />
+전송버튼: <input type="submit" value="전송버튼" />
+취소버튼: <input type="reset" value="취소" />
+이미지버튼: <input type="image" src="./images/btn_post.gif" />
+히든필드: <input type="hidden" value="숨김 데이터" /> 
+</form>
+</pre>
